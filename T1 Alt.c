@@ -3,7 +3,7 @@
 #include <locale.h>
 	
 	//Declaração inicial de variáveis
-	char mat[3][3];
+	char mat[3][3], simbolo;
  	 int i, x, y, check, test;
 
 	//Função "Imprimir", imprime a matriz quando chamada
@@ -18,13 +18,13 @@
 		
 		if (mat[0][0] == 'O' && mat[1][0] == 'O' && mat[2][0] == 'O' || mat[0][1] =='O' && mat[1][1] =='O' && mat[2][1] == 'O' || mat[0][2] =='O' && mat[1][2] == 'O' && mat[2][2] == 'O' || mat[0][0] == 'O' && mat[0][1] == 'O' && mat[0][2] == 'O' || mat[1][0] == 'O' && mat[1][1] == 'O' && mat[1][2] == 'O' || mat[2][0] == 'O' && mat[2][1] == 'O' && mat[2][2] == 'O' || mat[0][0] == 'O' && mat[1][1] == 'O' && mat [2][2] == 'O' || mat[0][2] == 'O' && mat[1][1] == 'O' && mat[2][0] == 'O' ) {
 		
-			printf("Jogador 1 venceu!\n");
+			printf("Jogador de O venceu!\n");
 			check = 1;
 		}
 		
 	 	if (mat[0][0] == 'X' && mat[1][0] == 'X' && mat[2][0] == 'X' || mat[0][1] == 'X' && mat[1][1] == 'X' && mat[2][1] == 'X' || mat[0][2] == 'X' && mat[1][2] == 'X' && mat[2][2] == 'X' || mat[0][0] == 'X' && mat[0][1] == 'X' && mat[0][2] == 'X' || mat[1][0] == 'X' && mat[1][1] == 'X' && mat[1][2] == 'X' || mat[2][0] == 'X' && mat[2][1] == 'X' && mat[2][2] == 'X' || mat[0][0] == 'X' && mat[1][1] == 'X' && mat [2][2] == 'X' || mat[0][2] == 'X' && mat[1][1] == 'X' && mat[2][0] == 'X' ) {
 		
-			printf("Jogador 2 venceu!\n");		
+			printf("Jogador de X venceu!\n");		
 			check = 1;
 		}
 		
@@ -52,43 +52,22 @@ mat[0][0] = mat[1][0] = mat[2][0] = mat[0][1] = mat[1][1] = mat[2][1] = mat[0][2
 
 	//Loop de rodadas, repete até uma condição de vitória ser atingida ou 9 turnos passarem sem vencedores, alternando entre os jogadores		
 	for (i = 1;i<10;i++) {
-	
-		//O jogador ativo é determinado pela paridade do turno, Jogador 1 joga em turnos ímpares, Jogador 2 em turnos pares
-		if (i%2 == 1 ) {
 		
-			printf("Jogador 1, digite as coordenadas do eixo x e y:\n");
+			printf("Jogador, digite as coordenadas do eixo x e y e o símbolo:\n");
 			
 			do {
 			//Recolhe as coordenadas da posição escolhida e testa a validade da posição, repetindo a sequência se a posição for inválida
-			scanf("%d", &x);
-			scanf("%d", &y);
-			
+			scanf("%d %d %c", &x, &y, &simbolo);
+	
+				
 			validade(mat, x, y);
 		
 		}	
 			while (test == 0);
 			
 			//Adiciona o símbolo na posição escolhida da matriz e imprime-a
-			mat[y-1][x-1] = 'O';
+			mat[y-1][x-1] = simbolo;
 			imprimir(mat);
-		}
-		else {
-			
-			//Idêntico ao turno do jogador 1
-			printf("Jogador 2, digite as coordenadas do eixo x e y:\n");
-			
-			do{
-			
-				scanf("%d", &x);
-				scanf("%d", &y);
-			
-				validade(mat, x, y);
-		}
-			while (test == 0);		
-			
-				mat[y-1][x-1] = 'X';
-				imprimir(mat);
-		}
 		//Teste de vitória, no caso de um vencedor ser declarado, imprime a respectiva mensagem de vitória e quebra o loop
 		testwin(mat);
 		
