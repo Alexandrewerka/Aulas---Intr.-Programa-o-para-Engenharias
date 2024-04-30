@@ -4,11 +4,11 @@
 	
 	//Declaração inicial de variáveis
 	char mat[3][3];
-	char jog, ador, jog1, jog2;
+	char jog, ador;
  	 int i, x, y, check, test;
  	 
  	 //Função simples para escolha de caractéres, só está em uma função para facilitar a visualização mesmo, poderia estar dentro do próprio código
- 	 void selecao(jog1, jog2){
+ 	 void selecao(jog, ador){
  	 
 	  	printf("Jogadores 1 e 2, escolham seus caractéres:\n");
 		scanf("%c %c", &jog, &ador);
