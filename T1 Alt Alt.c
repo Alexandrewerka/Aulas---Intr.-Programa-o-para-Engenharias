@@ -2,28 +2,28 @@
 #include <stdlib.h>
 #include <locale.h>
 	
-	//DeclaraÁ„o inicial de vari·veis
+	//Declara√ß√£o inicial de vari√°veis
 	char mat[3][3];
 	char jog, ador, jog1, jog2;
  	 int i, x, y, check, test;
  	 
- 	 //FunÁ„o simples para escolha de caractÈres, sÛ est· em uma funÁ„o para facilitar a visualizaÁ„o mesmo, poderia estar dentro do prÛprio cÛdigo
+ 	 //Fun√ß√£o simples para escolha de caract√©res, s√≥ est√° em uma fun√ß√£o para facilitar a visualiza√ß√£o mesmo, poderia estar dentro do pr√≥prio c√≥digo
  	 void selecao(jog1, jog2){
  	 
-	  	printf("Jogadores 1 e 2, escolham seus caractÈres:\n");
+	  	printf("Jogadores 1 e 2, escolham seus caract√©res:\n");
 		scanf("%c %c", &jog, &ador);
 	
 
 	  }
 
-	//FunÁ„o "Imprimir", imprime a matriz quando chamada
+	//Fun√ß√£o "Imprimir", imprime a matriz quando chamada
 	void imprimir(char mat[3][3]){
 
 		printf(" %c %c %c\n %c %c %c\n %c %c %c\n", mat[0][0], mat[1][0], mat[2][0], mat[0][1], mat[1][1], mat[2][1], mat[0][2], mat[1][2], mat[2][2]);
 
 	}
 
-	//FunÁ„o "testwin", checagem de condiÁıes de vitÛria, chamada no final de cada rodada, testa pela vitÛria de cada jogador, imprime a mensagem de vitÛria do vencedor (quando exista) e emite uma bandeira que quebra o loop
+	//Fun√ß√£o "testwin", checagem de condi√ß√µes de vit√≥ria, chamada no final de cada rodada, testa pela vit√≥ria de cada jogador, imprime a mensagem de vit√≥ria do vencedor (quando exista) e emite uma bandeira que quebra o loop
 	int testwin(char mat[3][3]) {
 		
 		if (mat[0][0] == jog && mat[1][0] == jog && mat[2][0] == jog || mat[0][1] == jog && mat[1][1] == jog && mat[2][1] == jog || mat[0][2] == jog && mat[1][2] == jog && mat[2][2] == jog || mat[0][0] == jog && mat[0][1] == jog && mat[0][2] == jog || mat[1][0] == jog && mat[1][1] == jog && mat[1][2] == jog || mat[2][0] == jog && mat[2][1] == jog && mat[2][2] == jog || mat[0][0] == jog && mat[1][1] == jog && mat [2][2] == jog || mat[0][2] == jog && mat[1][1] == jog && mat[2][0] == jog ) {
@@ -41,12 +41,12 @@
 		return (check);
 	}
 	
-	//FunÁ„o "validade", determina se o espaÁo escolhido est· vazio e È parte da matriz, inicialmente o plano era utilizar uma vari·vel booleana, mas C n„o suporta bool 
+	//Fun√ß√£o "validade", determina se o espa√ßo escolhido est√° vazio e √© parte da matriz, inicialmente o plano era utilizar uma vari√°vel booleana, mas C n√£o suporta bool 
 	int validade(char mat [3][3], int x, int y){
 		
 		if (mat [y-1][x-1] != '-') {
 			
-			printf ("As coordenadas s„o inv·lidas, insira uma posiÁ„o correta.\n");
+			printf ("As coordenadas s√£o inv√°lidas, insira uma posi√ß√£o correta.\n");
 			test = 0;
 		}
 		else 	test = 1;
@@ -57,30 +57,30 @@
 int main(int argc, char *argv[]) {
 	setlocale(LC_ALL,"portuguese");
   
-  //InicializaÁ„o da matriz
+  //Inicializa√ß√£o da matriz
 mat[0][0] = mat[1][0] = mat[2][0] = mat[0][1] = mat[1][1] = mat[2][1] = mat[0][2] = mat[1][2] = mat[2][2] = '-';
 
-	//SeleÁ„o de caractÈres, imprime um aviso quando os caractÈres escolhidos forem iguais e repete
+	//Sele√ß√£o de caract√©res, imprime um aviso quando os caract√©res escolhidos forem iguais e repete
 	do {
 		
 		selecao(jog, ador);
 	
 		if (jog == ador){
-			printf("Os dois caractÈres s„o iguais, por favor selecione caractÈres distintos\n");
+			printf("Os dois caract√©res s√£o iguais, por favor selecione caract√©res distintos\n");
 	}
 }
 	while (jog == ador);
 	
-	//Loop de rodadas, repete atÈ uma condiÁ„o de vitÛria ser atingida ou 9 turnos passarem sem vencedores, alternando entre os jogadores		
+	//Loop de rodadas, repete at√© uma condi√ß√£o de vit√≥ria ser atingida ou 9 turnos passarem sem vencedores, alternando entre os jogadores		
 	for (i = 1;i<10;i++) {
 	
-		//O jogador ativo È determinado pela paridade do turno, Jogador 1 joga em turnos Ìmpares, Jogador 2 em turnos pares
+		//O jogador ativo √© determinado pela paridade do turno, Jogador 1 joga em turnos √≠mpares, Jogador 2 em turnos pares
 		if (i%2 == 1 ) {
 		
 			printf("Jogador 1, digite as coordenadas do eixo x e y:\n");
 			
 			do {
-			//Recolhe as coordenadas da posiÁ„o escolhida e testa a validade da posiÁ„o, repetindo a sequÍncia se a posiÁ„o for inv·lida
+			//Recolhe as coordenadas da posi√ß√£o escolhida e testa a validade da posi√ß√£o, repetindo a sequ√™ncia se a posi√ß√£o for inv√°lida
 			scanf("%d", &x);
 			scanf("%d", &y);
 			
@@ -89,13 +89,13 @@ mat[0][0] = mat[1][0] = mat[2][0] = mat[0][1] = mat[1][1] = mat[2][1] = mat[0][2
 		}	
 			while (test == 0);
 			
-			//Adiciona o sÌmbolo na posiÁ„o escolhida da matriz e imprime-a
+			//Adiciona o s√≠mbolo na posi√ß√£o escolhida da matriz e imprime-a
 			mat[y-1][x-1] = jog;
 			imprimir(mat);
 		}
 		else {
 			
-			//Turno do Jogador 2, idÍntico ao turno do Jogador 1
+			//Turno do Jogador 2, id√™ntico ao turno do Jogador 1
 			printf("Jogador 2, digite as coordenadas do eixo x e y:\n");
 			
 			do{
@@ -110,7 +110,7 @@ mat[0][0] = mat[1][0] = mat[2][0] = mat[0][1] = mat[1][1] = mat[2][1] = mat[0][2
 				mat[y-1][x-1] = ador;
 				imprimir(mat);
 		}
-		//Teste de vitÛria, no caso de um vencedor ser declarado, imprime a respectiva mensagem de vitÛria e quebra o loop
+		//Teste de vit√≥ria, no caso de um vencedor ser declarado, imprime a respectiva mensagem de vit√≥ria e quebra o loop
 		testwin(mat);
 		
 			if (check == 1){
@@ -119,7 +119,7 @@ mat[0][0] = mat[1][0] = mat[2][0] = mat[0][1] = mat[1][1] = mat[2][1] = mat[0][2
 			}
 			
 	}
-	//Se a bandeira de vitÛria n„o for checada quando o loop for quebrado, imprime uma declaraÁ„o de empate
+	//Se a bandeira de vit√≥ria n√£o for checada quando o loop for quebrado, imprime uma declara√ß√£o de empate
  if (check != 1) {
  	
  	printf("A partida empatou!\n");
