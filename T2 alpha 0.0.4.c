@@ -56,8 +56,9 @@ for (i=0; i < wsize; i++){
 int main(int argc, char *argv[]) {
 	char pal[] = "plch", chute[] = "plch";
 	int i, t, wsize, *p;
-	
-	print("Qual será a palavra a ser chutada?");
+		setlocale(LC_ALL,"portuguese");
+
+	print("Qual serÃ¡ a palavra a ser chutada?");
 	            scanf("%s\n", pal);
 	
     wsize =	strlen(pal);
@@ -73,7 +74,7 @@ int main(int argc, char *argv[]) {
 	
     	if (check = 1){
 	
-    		printf("Você venceu!");
+    		printf("VocÃª venceu!");
 	
     		break;
 		}
@@ -81,7 +82,7 @@ int main(int argc, char *argv[]) {
 }
 
   if (check != 1) {
-            printf("Você perdeu, tente outra vez!");
+            printf("VocÃª perdeu, tente outra vez!");
             }
 		return 0;
 }
